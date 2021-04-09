@@ -1,6 +1,6 @@
 """For all tasks that run in log anomaly detector you should implement the steps involved in train/infer of models."""
 import datetime
-import logging
+from anomaly_detector.utils.logger import Logger
 from abc import ABCMeta, abstractmethod
 from prometheus_client import Counter
 from anomaly_detector.exception import EmptyDataSetException
@@ -9,6 +9,7 @@ from opentracing_instrumentation.request_context import get_current_span, span_i
 
 TRAINING_COUNT = Counter("aiops_lad_train_count", "count of training runs")
 INFER_COUNT = Counter("aiops_lad_inference_count", "count of inference runs")
+logging = Logger(__name__).get_logger()
 
 
 class AbstractCommand(metaclass=ABCMeta):

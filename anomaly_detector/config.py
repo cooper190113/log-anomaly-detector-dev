@@ -2,10 +2,10 @@
 
 import os
 import distutils
-import logging
+from anomaly_detector.utils.logger import Logger
 import yaml
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = Logger(__name__).get_logger()
 
 
 def join_model_path(config):
@@ -91,7 +91,7 @@ class Configuration:
     LS_INPUT_PATH = ""
     # Name of local results data
     LS_OUTPUT_PATH = ""
-    LS_OUTPUT_RWA_MODE = "w"
+    LS_OUTPUT_RWA_MODE = "a+"
     # ElasticSearch endpoint URL
     ES_ENDPOINT = ""
     # Path to a directory where cert and key (es.crt and es.key) are stored for authentication

@@ -5,28 +5,28 @@ with open("README.rst", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 REQUIRED_PKG = [
-    "Click",
-    "elasticsearch5",
-    "gensim",
-    "matplotlib",
-    "numpy",
-    "pandas",
-    "prometheus_client",
+    "Click==7.1.2",
+    "elasticsearch==7.10.1",
+    "gensim==3.7.0",
+    "matplotlib==3.3.4",
+    "numpy==1.20.1",
+    "pandas==1.0.5",
+    "prometheus_client==0.9.0",
     "Flask==1.0.4",
-    "scikit-learn",
-    "scipy",
-    "tqdm",
-    "SQLAlchemy",
-    "PyMySQL",
+    "scikit-learn==0.21.0",
+    "scipy==1.6.2",
+    "tqdm==39.0.1",
+    "SQLAlchemy==1.4.3",
+    "PyMySQL==1.0.2",
     "sompy",
-    "pyyaml",
-    "boto3",
-    "pyyaml",
-    "numba",
-    "kafka-python",
-    "jaeger-client",
-    "opentracing_instrumentation",
-    "prometheus_flask_exporter"
+    "pyyaml==5.4.1",
+    "boto3==1.17.48",
+    "pyyaml==5.4.1",
+    "numba==0.53.1",
+    "kafka-python==2.0.2",
+    "jaeger-client==4.4.0",
+    "opentracing_instrumentation==3.3.1",
+    "prometheus_flask_exporter==0.18.1"
 ]
 
 setup(

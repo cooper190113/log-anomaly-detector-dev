@@ -217,7 +217,7 @@
     {
       "cacheTimeout": null,
       "colorBackground": true,
-      "colorValue": true,
+      "colorValue": false,
       "colors": [
         "#d44a3a",
         "#C4162A",
@@ -294,7 +294,7 @@
           "value": "null"
         }
       ],
-      "valueName": "total"
+      "valueName": "current"
     },
     {
       "aliasColors": {

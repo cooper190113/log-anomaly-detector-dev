@@ -3,12 +3,14 @@ from anomaly_detector.core import DetectorPipeline, DetectorPipelineCatalog
 from anomaly_detector.exception.exceptions import EmptyDataSetException
 from anomaly_detector.config import Configuration
 from anomaly_detector.adapters.feedback_strategy import FeedbackStrategy
-import logging
+from anomaly_detector.utils.logger import Logger
 import uuid
 
 import time
 from jaeger_client import Config
 from opentracing_instrumentation.request_context import span_in_context
+
+logging = Logger(__name__).get_logger()
 
 
 class Facade:
@@ -33,8 +35,8 @@ class Facade:
         :param service: service name to use for tracing this application.
         :return: Tracer(opentracing.Tracer)
         """
-        logging.getLogger('').handlers = []
-        logging.basicConfig(format='%(message)s', level=logging.DEBUG)
+        # logging.getLogger('').handlers = []
+        # logging.basicConfig(format='%(message)s', level=logging.DEBUG)
         config = Config(
             config={
                 'sampler': {

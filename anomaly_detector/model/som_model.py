@@ -1,15 +1,15 @@
 """SOM model."""
 
 from anomaly_detector.model.base_model import BaseModel
+from anomaly_detector.utils.logger import Logger
 from matplotlib import pyplot as plt
 import os
 import numpy as np
-import logging
 import matplotlib
 
 matplotlib.use("agg")
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = Logger(__name__).get_logger()
 
 
 class SOMModel(BaseModel):

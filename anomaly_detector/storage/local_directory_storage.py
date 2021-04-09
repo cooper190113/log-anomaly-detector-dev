@@ -1,16 +1,16 @@
 """Local Storage."""
 import json
-import logging
 from enum import Enum
 from pathlib import Path
 from anomaly_detector.exception import FileFormatNotSupported
 from anomaly_detector.storage.storage_attribute import DefaultStorageAttribute
 from anomaly_detector.storage.storage_source import StorageSource
 from anomaly_detector.storage.storage import DataCleaner
+from anomaly_detector.utils.logger import Logger
 from collections import deque
 from pandas.io.json import json_normalize
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = Logger(__name__).get_logger()
 
 
 class LocalDirStorage:

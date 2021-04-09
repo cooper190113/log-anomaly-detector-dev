@@ -1,11 +1,11 @@
 """SOMPY model."""
 from anomaly_detector.model.base_model import BaseModel
+from anomaly_detector.utils.logger import Logger
 import numpy as np
-import logging
 import sompy
 from multiprocessing import Pool
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = Logger(__name__).get_logger()
 
 
 class SOMPYModel(BaseModel):

@@ -1,5 +1,4 @@
 """Factstore Api definition."""
-import logging
 import os
 from flask import request, jsonify, make_response
 from flask import Blueprint
@@ -7,8 +6,10 @@ from prometheus_client import Counter
 
 from anomaly_detector.fact_store.app.models.controller import readall_feedback, \
     readall_false_positive, write_feedback
+from anomaly_detector.utils.logger import Logger
 
 api = Blueprint('api', __name__, url_prefix='/api')
+logging = Logger(__name__).get_logger()
 
 HUMAN_FEEDBACK_COUNT = Counter(
     "aiops_human_feedback",

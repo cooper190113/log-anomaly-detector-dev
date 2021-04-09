@@ -1,8 +1,10 @@
 """Encoder class for converting raw log to vector representation."""
 import os
-import logging
+from anomaly_detector.utils.logger import Logger
 from anomaly_detector.model import W2VModel
 from anomaly_detector.exception import ModelSaveException, ModelLoadException
+
+logging = Logger(__name__).get_logger()
 
 
 class LogEncoderCatalog(object):

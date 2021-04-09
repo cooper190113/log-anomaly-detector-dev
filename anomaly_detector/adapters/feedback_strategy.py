@@ -1,7 +1,9 @@
 """Feedback strategy for custom behaviour of false positive input."""
 import types
 import requests
-import logging
+from anomaly_detector.utils.logger import Logger
+
+logging = Logger(__name__).get_logger()
 
 
 class FeedbackStrategy():

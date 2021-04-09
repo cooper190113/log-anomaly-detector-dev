@@ -9,10 +9,10 @@ import os
 import urllib3
 from anomaly_detector.storage.storage_sink import StorageSink
 from anomaly_detector.storage.storage_source import StorageSource
-import logging
+from anomaly_detector.utils.logger import Logger
 from anomaly_detector.storage.storage import DataCleaner
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = Logger(__name__).get_logger()
 
 
 class ESStorage:

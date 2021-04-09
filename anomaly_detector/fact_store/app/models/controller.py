@@ -1,11 +1,11 @@
 """Fact Store API for human feedback in the loop."""
-import logging
-
 from sqlalchemy.exc import IntegrityError
-
+from anomaly_detector.utils.logger import Logger
 from anomaly_detector.fact_store.app.models.model import FeedbackModel
 from anomaly_detector.fact_store.app.models.model import db as database
 from contextlib import contextmanager
+
+logging = Logger(__name__).get_logger()
 
 
 @contextmanager

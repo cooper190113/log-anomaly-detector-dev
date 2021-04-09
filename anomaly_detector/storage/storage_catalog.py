@@ -4,7 +4,9 @@ from anomaly_detector.storage.local_storage import LocalStorageDataSource, Local
 from anomaly_detector.storage.local_directory_storage import LocalDirectoryStorageDataSource
 from anomaly_detector.storage.stdout_sink import StdoutSink
 from anomaly_detector.storage.es_storage import ElasticSearchDataSink, ElasticSearchDataSource
-import logging
+from anomaly_detector.utils.logger import Logger
+
+logging = Logger(__name__).get_logger()
 
 
 class StorageCatalog(object):

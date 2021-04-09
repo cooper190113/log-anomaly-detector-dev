@@ -1,9 +1,11 @@
 """Som Storage Adapter for interfacing with custom storage for custom application."""
-import logging
 from anomaly_detector.adapters import BaseStorageAdapter
 from anomaly_detector.decorator.utils import latency_logger
 from anomaly_detector.storage import ESStorageAttribute
 from anomaly_detector.storage.storage_proxy import StorageProxy
+from anomaly_detector.utils.logger import Logger
+
+logging = Logger(__name__).get_logger()
 
 
 class SomStorageAdapter(BaseStorageAdapter):

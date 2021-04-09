@@ -2,9 +2,9 @@
 import numpy as np
 from gensim.models import Word2Vec
 from anomaly_detector.model.base_model import BaseModel
-import logging
+from anomaly_detector.utils.logger import Logger
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = Logger(__name__).get_logger()
 
 
 class W2VModel(BaseModel):

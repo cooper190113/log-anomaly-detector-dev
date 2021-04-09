@@ -1,13 +1,15 @@
 """Local Storage."""
+import time
+
 from anomaly_detector.storage.storage_attribute import DefaultStorageAttribute
 from pandas.io.json import json_normalize
 from anomaly_detector.storage.storage_sink import StorageSink
 from anomaly_detector.storage.storage_source import StorageSource
 from anomaly_detector.storage.storage import DataCleaner
-import logging
+from anomaly_detector.utils.logger import Logger
 import json
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = Logger(__name__).get_logger()
 
 
 class LocalStorageDataSink(StorageSink, DataCleaner):
@@ -22,8 +24,11 @@ class LocalStorageDataSink(StorageSink, DataCleaner):
     def store_results(self, data):
         """Store results."""
         if len(self.config.LS_OUTPUT_PATH) > 0:
-            with open(self.config.LS_OUTPUT_PATH, self.config.LS_OUTPUT_RWA_MODE) as fp:
-                json.dump(data, fp)
+            now = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time())) + '.log'
+            with open(self.config.LS_OUTPUT_PATH + '/' + now, self.config.LS_OUTPUT_RWA_MODE) as fp:
+                for item in data:
+                    fp.write(str(item))
+                    fp.write('\r\n')
         else:
             for item in data:
                 _LOGGER.info("Anomaly: %d, Anmaly score: %f" % (item["anomaly"], item["anomaly_score"]))

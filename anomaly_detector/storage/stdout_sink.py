@@ -1,6 +1,8 @@
 """Stdout sink."""
-import logging
 from anomaly_detector.storage.storage_sink import StorageSink
+from anomaly_detector.utils.logger import Logger
+
+logging = Logger(__name__).get_logger()
 
 
 class StdoutSink(StorageSink):

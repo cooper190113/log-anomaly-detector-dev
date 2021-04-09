@@ -1,5 +1,4 @@
 """Som Model Adapter - Working with custom implementation of SOM."""
-import logging
 import uuid
 import numpy as np
 from anomaly_detector.adapters import BaseModelAdapter
@@ -9,6 +8,7 @@ from anomaly_detector.model import SOMPYModel, W2VModel
 import os
 from prometheus_client import Gauge, Counter, Histogram
 from urllib.parse import quote
+from anomaly_detector.utils.logger import Logger
 
 ANOMALY_COUNT = Gauge("aiops_lad_anomaly_count", "count of anomalies runs", ['anomaly_status'])
 ANOMALY_SCORE = Gauge("aiops_lad_anomaly_avg_score", "avg anomaly score")
@@ -16,6 +16,7 @@ LOG_LINES_COUNT = Gauge("aiops_lad_loglines_count", "count of log lines processe
 FALSE_POSITIVE_COUNT = Counter("aiops_lad_false_positive_count", "count of false positives processed runs", ['id'])
 ANOMALY_HIST = Histogram("aiops_hist", "histogram of anomalies runs")
 THRESHOLD = Gauge("aiops_lad_threshold", "Threshold of marker for anomaly")
+logging = Logger(__name__).get_logger()
 
 
 class SomModelAdapter(BaseModelAdapter):
