@@ -19,14 +19,16 @@ REQUIRED_PKG = [
     "SQLAlchemy==1.4.3",
     "PyMySQL==1.0.2",
     "sompy",
-    "pyyaml==5.4.1",
     "boto3==1.17.48",
     "pyyaml==5.4.1",
     "numba==0.53.1",
     "kafka-python==2.0.2",
     "jaeger-client==4.4.0",
     "opentracing_instrumentation==3.3.1",
-    "prometheus_flask_exporter==0.18.1"
+    "prometheus_flask_exporter==0.18.1",
+    "gunicorn==19.9.0",
+    "flask-sqlalchemy==2.5.1",
+    "ipdb==0.13.0"
 ]
 
 setup(
