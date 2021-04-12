@@ -24,7 +24,7 @@ class LocalStorageDataSink(StorageSink, DataCleaner):
     def store_results(self, data):
         """Store results."""
         if len(self.config.LS_OUTPUT_PATH) > 0:
-            now = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time())) + '.log'
+            now = time.strftime("%Y%m%d", time.localtime(time.time())) + '.log'
             with open(self.config.LS_OUTPUT_PATH + '/' + now, self.config.LS_OUTPUT_RWA_MODE) as fp:
                 for item in data:
                     fp.write(str(item))
