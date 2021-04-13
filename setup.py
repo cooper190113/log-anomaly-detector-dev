@@ -15,7 +15,7 @@ REQUIRED_PKG = [
     "Flask==1.0.4",
     "scikit-learn==0.21.0",
     "scipy==1.6.2",
-    "tqdm==39.0.1",
+    "tqdm==4.59.0",
     "SQLAlchemy==1.4.3",
     "PyMySQL==1.0.2",
     "sompy",
