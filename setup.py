@@ -6,7 +6,7 @@ with open("README.rst", "r", encoding="utf-8") as fh:
 
 REQUIRED_PKG = [
     "Click==7.1.2",
-    "elasticsearch==5.5.6",
+    "elasticsearch5==5.5.6",
     "gensim==3.7.0",
     "matplotlib==3.3.4",
     "numpy==1.20.1",
