@@ -3,7 +3,7 @@ from anomaly_detector.storage.storage_attribute import ESStorageAttribute
 import datetime
 import pandas
 from pandas.io.json import json_normalize
-from elasticsearch5 import Elasticsearch, helpers
+from elasticsearch7 import Elasticsearch, helpers
 import json
 import os
 import urllib3
@@ -120,7 +120,7 @@ class ElasticSearchDataSource(StorageSource, DataCleaner, ESStorage):
         query["query"]["bool"]["must"][1]["range"]["@timestamp"]["gte"] = "now-%ds" % storage_attribute.time_range
         query["query"]["bool"]["must"][0]["query_string"]["query"] = self.config.ES_QUERY
 
-        es_data = self.es.search(index_in, body=json.dumps(query))
+        es_data = self.es.search(body=json.dumps(query), index=index_in)
         if (self.config.ES_VERSION < 7 and es_data["hits"]["total"] == 0) or \
                 (self.config.ES_VERSION >= 7 and es_data["hits"]["total"]["value"] == 0):
             return pandas.DataFrame(), es_data
