@@ -39,7 +39,9 @@ class Logger:
         ch.setLevel(logging.DEBUG)
 
         # 定义handler的输出格式
-        formatter = logging.Formatter('%(asctime)s-%(name)s-%(levelname)s-%(message)s')
+        log_format = "%(asctime)s %(levelname)s %(name)s: %(message)s"
+        date_format = "%m/%d/%Y %H:%M:%S %p"
+        formatter = logging.Formatter(fmt=log_format, datefmt=date_format)
         fh.setFormatter(formatter)
         ch.setFormatter(formatter)
 
