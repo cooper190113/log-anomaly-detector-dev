@@ -91,7 +91,7 @@ class Configuration:
     LS_INPUT_PATH = ""
     # Name of local results data
     LS_OUTPUT_PATH = ""
-    LS_OUTPUT_RWA_MODE = "a+"
+    LS_OUTPUT_RWA_MODE = "w"
     # ElasticSearch endpoint URL
     ES_ENDPOINT = ""
     # Path to a directory where cert and key (es.crt and es.key) are stored for authentication
