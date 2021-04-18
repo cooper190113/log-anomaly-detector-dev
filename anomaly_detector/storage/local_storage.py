@@ -27,7 +27,8 @@ class LocalStorageDataSink(StorageSink, DataCleaner):
             now = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time())) + '.log'
             with open(self.config.LS_OUTPUT_PATH + '/' + now, self.config.LS_OUTPUT_RWA_MODE) as fp:
                 for item in data:
-                    fp.write(str(item))
+                    line = "%s, Anomaly: %d, Anmaly score: %f" % (item["message"], item["anomaly"], item["anomaly_score"])
+                    fp.write(line)
                     fp.write('\r\n')
         else:
             for item in data:
