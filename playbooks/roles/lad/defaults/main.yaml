@@ -1,1 +1,0 @@
-lad_template: "{% if lad.es_secrets_name is defined %}main_certs.yaml{% else %}main_no_certs.yaml{% endif %}"
